@@ -43,3 +43,7 @@ func removeCharactersUsingDictionary(in text: String) -> String {
 
 
 print(removeCharactersUsingDictionary(in: "Hernandez"))
+
+
+
+
