@@ -29,7 +29,34 @@ func removeExtraSpacesAttemp1(input: String)  {
 
 func removeExtraSpaces(input: String) -> String {
     let components = input.components(separatedBy: .whitespacesAndNewlines)
-    return components.filter{ !$0.isEmpty}.joined(separator: "")
+    return components.filter{ !$0.isEmpty}.joined(separator: " ")
 }
 
 removeExtraSpaces(input: "a   b   c")
+
+
+// alternative answer (ok answer)
+
+
+// In this fucntion, we basically have a string and our job is to remove the extra spaces. We simply need to iterate through all the characters in the string. We need to keep track if we have seen an empty space. If we have seen it, then we jump to the next iteration. If this is the first time we see it, then we simply set the flag to true. and append the value to returnValue.
+
+func removeExtraSpaces(with input: String) -> String {
+    var hasSeenSpace = false
+    var returnValue = ""
+
+    for letter in input.characters {
+        if letter == " "  {
+            if hasSeenSpace == true {
+                continue
+            }
+            hasSeenSpace = true
+        } else {
+            hasSeenSpace = false
+        }
+        returnValue.append(letter)
+    }
+
+    return returnValue
+}
+
+removeExtraSpaces(with: "a   b   c")
