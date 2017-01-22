@@ -2,7 +2,30 @@
 
 import UIKit
 
-//Write a function that accepts an integer as its parameter and return true if the number is prime 
+////Write a function that accepts an integer as its parameter and return true if the number is prime 
+//
+//func isPrime(_ number: Int) -> Bool {
+//    guard number >= 2 else {
+//        return false
+//    }
+//
+//    for i in 2..<number {
+//        if number % i == 0 {
+//            return false
+//        }
+//    }
+//
+//    return true
+//}
+
+
+
+//print(isPrime(9))
+//print(isPrime(11))
+//print(isPrime(13))
+//print(isPrime(4))
+
+
 
 func isPrime(_ number: Int) -> Bool {
     guard number >= 2 else {
