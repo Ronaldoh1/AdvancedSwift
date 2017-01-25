@@ -1,5 +1,3 @@
-//: Playground - noun: a place where people can play
-
 import UIKit
 
 
@@ -28,6 +26,17 @@ public class LinkedList<T> {
 
     public var count = 0
 
+    public var centerNode: LinkedListNode<T>? {
+        var slow = head
+        var fast = head
+
+        while fast != nil && fast?.next != nil {
+            slow = slow?.next
+            fast = fast?.next?.next
+        }
+        return slow
+    }
+
     public var first: Node? {
         return head
     }
@@ -42,6 +51,7 @@ public class LinkedList<T> {
             return nil
         }
     }
+
     public func append(value: T) {
         let newNode = Node(value: value)
         if let lastNode = last {
@@ -61,24 +71,8 @@ public class LinkedList<T> {
             currentNode = node.next
         }
     }
-}
-
-extension LinkedListNode {
-
 
 
 }
 
-let list = LinkedList<String>()
-
-list.isEmpty
-list.first
-
-let characters = NSCharacterSet.letters
-
-for letter in "abcdefghijklmnopqrstuvwxyz".characters {
-    list.append(value: String(letter))
-}
-
-list.printNodes()
 
