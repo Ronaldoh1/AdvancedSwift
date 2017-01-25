@@ -5,7 +5,7 @@ import UIKit
 
 public class LinkedListNode<T> {
 
-    let next: LinkedListNode?
+    var next: LinkedListNode?
     var value: T
     weak var previousNode: LinkedListNode?
 
