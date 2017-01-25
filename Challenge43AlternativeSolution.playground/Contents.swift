@@ -2,12 +2,12 @@
 
 import UIKit
 
-
+//Create a Node Class
 public class LinkedListNode<T> {
 
-    let next: LinkedListNode?
     var value: T
-    weak var previousNode: LinkedListNode?
+    var next: LinkedListNode?
+    weak var previous: LinkedListNode?
 
     public init(value: T) {
         self.value = value
@@ -16,13 +16,16 @@ public class LinkedListNode<T> {
 }
 
 
-public class LinkedList<T> {
+// Create the list class // a list contains a pointer to the head, isEmpty, append to add value
+
+public class linkedList<T> {
 
     public typealias Node = LinkedListNode<T>
 
-    public var head: Node?
+    private var head: Node?
 
     public var isEmpty: Bool {
+
         return head == nil
     }
 
@@ -40,38 +43,64 @@ public class LinkedList<T> {
             return nil
         }
     }
+
     public func append(value: T) {
         let newNode = Node(value: value)
         if let lastNode = last {
-            newNode.previousNode = lastNode
-            last?.next = newNode
+            newNode.previous = last
+            lastNode.next = newNode
         } else {
             head = newNode
         }
     }
 
-    public func printNodes() {
+    public func printList() {
         var currentNode = head
 
         while let node = currentNode {
+
             print(node.value)
-            currentNode = node.next
+            currentNode = currentNode?.next
         }
+
     }
 }
 
 
 
-let list = LinkedList<String>()
+let list = linkedList<String>()
+list.isEmpty // should print true.
+list.first //should print nil
 
-list.isEmpty
-list.first
 
-let characters = NSCharacterSet.letters
+// we need to add the letters to the list.
 
 for letter in "abcdefghijklmnopqrstuvwxyz".characters {
+
     list.append(value: String(letter))
+    
 }
 
-list.printNodes()
+
+list.printList()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
